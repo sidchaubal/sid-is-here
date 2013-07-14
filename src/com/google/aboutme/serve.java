@@ -1,0 +1,24 @@
+package com.google.aboutme;
+
+import java.io.IOException;
+
+import javax.servlet.http.*;
+
+
+import com.google.appengine.api.blobstore.BlobKey;
+import com.google.appengine.api.blobstore.BlobstoreService;
+import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
+
+
+@SuppressWarnings("serial")
+public class serve extends HttpServlet {
+
+	 private BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
+
+	 public void doGet(HttpServletRequest req, HttpServletResponse res)
+	     throws IOException {
+	         BlobKey blobKey = new BlobKey(req.getParameter("blob-key"));
+	         
+	         blobstoreService.serve(blobKey, res);
+	     }
+}

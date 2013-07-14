@@ -1,0 +1,2 @@
+serviceClass: com.google.aboutme.client.GreetingService
+path: 902A3DC4C233B25FA43CEEA3B659408F.gwt.rpc

@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+
+<security-constraint>
+
+        <web-resource-collection>
+            <url-pattern>/manageSite.jsp</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+  </security-constraint>
+    
+    <security-constraint>    
+        <web-resource-collection>
+            <url-pattern>/sharefiles.jsp</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>*</role-name>
+        </auth-constraint>
+    </security-constraint>
+  
+  <!-- Servlets -->
+  <servlet>
+    <servlet-name>greetServlet</servlet-name>
+    <servlet-class>com.google.aboutme.getweather</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>greetServlet</servlet-name>
+    <url-pattern>/getw</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>serve_comments</servlet-name>
+    <servlet-class>com.google.aboutme.comment_handler</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>serve_comments</servlet-name>
+    <url-pattern>/setcomment</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>serve_comments_post</servlet-name>
+    <servlet-class>com.google.aboutme.postservr</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>serve_comments_post</servlet-name>
+    <url-pattern>/setit</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>content_handler</servlet-name>
+    <servlet-class>com.google.aboutme.contenthandler</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>content_handler</servlet-name>
+    <url-pattern>/handlecontent</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Check Credentials</servlet-name>
+    <servlet-class>com.google.aboutme.checkcredentials</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Check Credentials</servlet-name>
+    <url-pattern>/checkuser</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+    <servlet-name>Upload</servlet-name>
+    <servlet-class>com.google.aboutme.upload</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>Serve</servlet-name>
+    <servlet-class>com.google.aboutme.serve</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>Upload</servlet-name>
+    <url-pattern>/upload</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>Serve</servlet-name>
+    <url-pattern>/serve</url-pattern>
+  </servlet-mapping>
+
+<servlet>
+    <servlet-name>BlobCleanup</servlet-name>
+    <servlet-class>com.google.aboutme.blobcleanup</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>BlobCleanup</servlet-name>
+    <url-pattern>/blobcleanup</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>BlobDelete</servlet-name>
+    <servlet-class>com.google.aboutme.blobdelete</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>BlobDelete</servlet-name>
+    <url-pattern>/blobdelete</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Sendemails</servlet-name>
+    <servlet-class>com.google.aboutme.sendemails</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>Sendemails</servlet-name>
+    <url-pattern>/sendemails</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>iPhoneLog</servlet-name>
+    <servlet-class>com.google.aboutme.todolog</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>iPhoneLog</servlet-name>
+    <url-pattern>/submitlog</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  <security-constraint>
+  <web-resource-collection>
+    <url-pattern>/sendemails*</url-pattern>
+  </web-resource-collection>
+  <auth-constraint>
+    <role-name>admin</role-name>
+  </auth-constraint>
+</security-constraint>
+
+ <security-constraint>
+  <web-resource-collection>
+    <url-pattern>/logviewer.jsp</url-pattern>
+  </web-resource-collection>
+  <auth-constraint>
+    <role-name>admin</role-name>
+  </auth-constraint>
+</security-constraint>
+  
+  <!-- Email Servlets and Settings -->
+<servlet>
+  <servlet-name>mailhandler</servlet-name>
+  <servlet-class>com.google.aboutme.mailreceiver</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>mailhandler</servlet-name>
+  <url-pattern>/_ah/mail/*</url-pattern>
+</servlet-mapping>
+<security-constraint>
+  <web-resource-collection>
+    <url-pattern>/_ah/mail/*</url-pattern>
+  </web-resource-collection>
+  <auth-constraint>
+    <role-name>admin</role-name>
+  </auth-constraint>
+</security-constraint>
+  
+  <security-constraint>
+  <web-resource-collection>
+    <url-pattern>/mail.jsp</url-pattern>
+  </web-resource-collection>
+  <auth-constraint>
+    <role-name>admin</role-name>
+  </auth-constraint>
+</security-constraint>
+
+ <security-constraint>
+  <web-resource-collection>
+    <url-pattern>/mesdetail*</url-pattern>
+  </web-resource-collection>
+  <auth-constraint>
+    <role-name>admin</role-name>
+  </auth-constraint>
+</security-constraint>
+
+ <security-constraint>
+  <web-resource-collection>
+    <url-pattern>/inbox.jsp</url-pattern>
+  </web-resource-collection>
+  <auth-constraint>
+    <role-name>admin</role-name>
+  </auth-constraint>
+</security-constraint>
+
+
+ <security-constraint>
+  <web-resource-collection>
+    <url-pattern>/compose.jsp</url-pattern>
+  </web-resource-collection>
+  <auth-constraint>
+    <role-name>admin</role-name>
+  </auth-constraint>
+</security-constraint>
+
+<security-constraint>
+  <web-resource-collection>
+    <url-pattern>/send*</url-pattern>
+  </web-resource-collection>
+  <auth-constraint>
+    <role-name>admin</role-name>
+  </auth-constraint>
+</security-constraint>
+
+
+<security-constraint>
+  <web-resource-collection>
+    <url-pattern>/sent*</url-pattern>
+  </web-resource-collection>
+  <auth-constraint>
+    <role-name>admin</role-name>
+  </auth-constraint>
+</security-constraint>
+
+
+<security-constraint>
+  <web-resource-collection>
+    <url-pattern>/mesdetail.jsp</url-pattern>
+  </web-resource-collection>
+  <auth-constraint>
+    <role-name>admin</role-name>
+  </auth-constraint>
+</security-constraint>
+  <!-- Default page to serve -->
+  <welcome-file-list>
+    <welcome-file>home.jsp</welcome-file>
+  </welcome-file-list>
+
+</web-app>
+
+<!--  Security constraints -->
+
